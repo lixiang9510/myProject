@@ -32,7 +32,8 @@
 					task,
 					done:false
 				}
-				this.addTodo(todo)
+				// console.log(this.$store)//上面有个dispatch方法
+				this.$store.dispatch('addTodo',todo)
 				this.task = ''
 			}
 		}

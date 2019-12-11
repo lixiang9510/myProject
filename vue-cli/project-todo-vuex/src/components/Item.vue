@@ -19,7 +19,6 @@
 		name:'Item',
 		props:{
 			todo:Object,
-			delTodo:Function,
 			index:Number
 
 		},
@@ -35,7 +34,11 @@
 				this.isShow = flag
 			},
 			handleDel(){
-				this.delTodo(this.index)
+				if(window.confirm('您确定要删除'+this.todo.task+'这条任务吗？')){
+					// this.delTodo(this.index)
+					this.$store.dispatch('delTodo',this.index)
+				}
+				
 			}
 		}
 	}

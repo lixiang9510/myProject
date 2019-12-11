@@ -1,12 +1,9 @@
 <template>
 	<div class="App">
 		<h2>TODO LIST</h2>
-		<Header :addTodo="addTodo" />
-		<List 
-		:todos="todos"
-		:delTodo="delTodo"
-		/>
-		<Footer :todos="todos" :selectAllDone="selectAllDone" :delAllDone="delAllDone"/>
+		<Header  />
+		<List />
+		<Footer />
 	</div>
 </template>
 
@@ -20,15 +17,6 @@
 			Header,
 			List,
 			Footer
-		},
-		data(){
-			return {
-				todos:[
-					{task:'学习',done:false},
-					{task:'看电影',done:true},
-					{task:'打篮球',done:false}
-				]
-			}
 		},
 		methods:{
 			addTodo(todo){

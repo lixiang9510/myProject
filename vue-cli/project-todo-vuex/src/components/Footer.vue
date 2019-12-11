@@ -7,38 +7,30 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	export default {
 		name:'Footer',
-		props:{
-			todos:Array,
-			selectAllDone:Function,
-			delAllDone:Function
-		},
 		computed:{
-			allTodo(){
-				return this.todos.length
-			},
-			todoDone(){
-				let allDone = 0;
-				this.todos.forEach(item=>{
-					if(item.done){
-						allDone++
-					}
-				})
-				return allDone
-			},
+			...mapGetters([
+				'allTodo',
+				'todoDone'
+			]),
 			allDone:{
 				get(){
-					return (this.allTodo == this.todoDone) && (this.allTodo != 0)
+					return this.$store.getters.allDone
 				},
 				set(value){
-					this.selectAllDone(value)
+					// this.selectAllDone(value)
+					this.$store.dispatch('selectAllDone',value)
 				}
 			}
 		},
 		methods:{
 			handleDleAllDone(){
-				this.delAllDone()
+				// this.delAllDone()
+				if(window.confirm('您确定删除所有已经完成任务吗')){
+					this.$store.dispatch('delAllDone')
+				}
 			}
 		}
 	}
