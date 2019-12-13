@@ -12,6 +12,9 @@
 				<div class="swiper-slide">
 					<img src="../../assets/images/beauty3.jpg" alt="">
 				</div>
+				<div class="swiper-slide">
+					<img src="../../assets/images/beauty4.jpg" alt="">
+				</div>
 			</div>
 			<!-- 如果需要分页器 -->
 			<div class="swiper-pagination"></div>
@@ -20,7 +23,7 @@
 			<li class="product-floor" v-for="(floor,floorIndex) in homeProducts"
 			:key="floorIndex"
 			>
-				<h3 class="floor-title">{{floor.title}}</h3>
+				<h3 class="floor-title">{{floor.title | formatchTitle}}</h3>
 				<ul class="product-list">
 					<li 
 					class="product-item" 
@@ -30,7 +33,7 @@
 						<img class="product-image" :src="products.image" alt="">
 						<div class="product-content">
 							<h4 class="product-name">{{products.name}}</h4>
-							<p class="product-price">{{products.price}}</p>
+							<p class="product-price">{{products.price | formatchPrice}}</p>
 							<span class="btn-buy">购买</span>
 						</div>
 					</li>														
@@ -64,10 +67,10 @@
 
 <style scoped lang="less">
 		.Home{
-			.rem(margin-bottom,30);
+			.rem(margin-bottom,50);
 		.swiper-slide img{
 			width: 100%;
-			.rem(height,400);
+			.rem(height,500);
 		}
 		.product-wrap{
 			display: flex;

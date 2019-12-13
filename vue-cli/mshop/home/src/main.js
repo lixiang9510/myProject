@@ -6,6 +6,9 @@ import './assets/css/common.css'
 import 'font-awesome/css/font-awesome.min.css' 
 import router from './router'
 import store from './store'
+import filters from './filters'
+
+Object.keys(filters).forEach(key=>Vue.filter(key,filters[key]))
 
 
 Vue.config.productionTip = false;
