@@ -94,7 +94,7 @@
 			})
 			.done(function(result){
 				if(result.status == 0){
-					console.log(result)
+					window.location.reload()
 				}else{
 					$err.html(result.message);
 				}

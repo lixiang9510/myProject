@@ -1,0 +1,12 @@
+
+.navbar-header{
+	width: 100%;
+}
+.dropdown{
+	float: right;
+	margin-top: 8px;
+	margin-right: 90px;
+}
+.dropdown-item{
+	margin-left:10px;
+}

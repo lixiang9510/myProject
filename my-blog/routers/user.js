@@ -20,7 +20,8 @@ router.post("/register",(req,res)=>{
 		}else{
 			UserModel.insertMany({
 				username,
-				password:hmac(password)
+				password:hmac(password),
+				// isAdmin:true
 			})
 			.then(user=>{
 				result.message = "注册成功";
@@ -49,6 +50,8 @@ router.post("/login",(req,res)=>{
 	.then(user=>{
 		if(user){
 			result.data = user;
+			// req.cookies.set('userInfo',JSON.stringify(user))
+			req.session.userInfo=user
 			res.json(result);
 		}else{
 			result.status = 10;
@@ -61,6 +64,16 @@ router.post("/login",(req,res)=>{
 		result.message = "服务器端错误，请稍后再试";
 		res.json(result);
 	})
+})
+
+//处理退出
+router.get("/layout",(req,res)=>{
+	const result = {
+		status:0,
+		message:''
+	}
+	req.session.destroy();
+	res.json(result)
 })
 
 

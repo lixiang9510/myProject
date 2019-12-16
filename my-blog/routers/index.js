@@ -6,7 +6,9 @@ const router = express.Router()
 
 //显示首页
 router.get("/",(req,res)=>{
-	res.render('main/index')
+	res.render('main/index',{
+		userInfo:req.userInfo
+	})
 })
 
 
