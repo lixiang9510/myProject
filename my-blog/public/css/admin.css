@@ -10,3 +10,9 @@
 .dropdown-item{
 	margin-left:10px;
 }
+#table-striped-add{
+	min-height: 200px;
+}
+.page-header{
+	margin-bottom: 20px;
+}

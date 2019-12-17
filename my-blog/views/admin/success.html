@@ -1,0 +1,14 @@
+{% extends './layout.html' %}
+{% block header %}
+  <h1 class="page-header">操作成功！！！</h1>
+{% endblock %}
+{% block content %}
+	<div class="alert alert-success" role="alert">
+		{{ message }}
+	</div>
+	{% if url %}
+	<a href="{{url}}">分类列表</a>
+	{% else %}
+	<a href="javascript:window.history.back();"></a>
+	{% endif %}
+{% endblock %}

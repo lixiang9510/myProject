@@ -1,0 +1,31 @@
+{% extends './layout.html' %}
+{% block header %}
+  <h1 class="page-header">分类列表管理中心</h1>
+{% endblock %}
+{% block content %}
+	<div id="table-striped-add">
+		<a href="/category/add" class="btn btn-primary btn-add">添加分类</a>
+		<table class="table table-striped">
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>分类名称</th>
+	          <th>排序</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	       <tbody>
+            {% for val in users %}
+            <tr> 
+              <td>{{val._id.toString()}}</td>
+              <td>{{val.name}}</td>
+              <td>{{val.order}}</td>
+            </tr>
+            {% endfor %}
+       </tbody>
+	    </table>
+    </div>
+    {% if pages>1 %}
+    {% include './pagination.html' %}
+    {% endif %}
+{% endblock %}
