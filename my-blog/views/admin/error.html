@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 	<div class="alert alert-danger" role="alert">
-		{{ message }}
+		{{ message.toString() }}
 	</div>
 	{% if url %}
 	<a href="{{url}}">分类列表</a>

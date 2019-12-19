@@ -1,4 +1,5 @@
 const express = require('express')
+const CategoryModel = require('../models/category.js')
 
 
 const router = express.Router()
@@ -6,9 +7,15 @@ const router = express.Router()
 
 //显示首页
 router.get("/",(req,res)=>{
-	res.render('main/index',{
-		userInfo:req.userInfo
+	CategoryModel.find({},'name')
+	.sort({_id:-1})
+	.then(categories=>{
+		res.render('main/index',{
+			userInfo:req.userInfo,
+			categories
+		})
 	})
+	
 })
 
 

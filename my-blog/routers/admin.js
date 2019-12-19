@@ -16,7 +16,6 @@ router.use((req,res,next)=>{
 
 //显示首页
 router.get("/",(req,res)=>{
-	console.log(UserModel)
 	res.render('admin/index',{
 		userInfo:req.userInfo
 	})
