@@ -104,4 +104,72 @@
 			})
 		}
 	})
+	//文章分页
+	const $articleList = $('#article-list');
+	var $articleWrap = $('#article-wrap');
+	function buildArticleListHtml(articles){
+		var html = '';
+
+		articles.forEach(function(article){
+			var getDate = moment(article.createAt).format('YYYY年MM月DD号 HH:MM:SS');
+			html += `<div class="panel panel-default content-item">
+				      <div class="panel-heading">
+				        <h3 class="panel-title">
+				          <a href="detail.html" class="link" target="_blank">${article.title}</a>
+				        </h3>
+				      </div>
+				      <div class="panel-body">
+				        ${article.intro}
+				      </div>
+				      <div class="panel-footer">
+				        <span class="glyphicon glyphicon-user"></span>
+				        <span class="panel-footer-text text-muted">${article.author.username}</span>
+				        <span class="glyphicon glyphicon-th-list"></span>
+				        <span class="panel-footer-text text-muted">${article.category.name}</span>
+				        <span class="glyphicon glyphicon-time"></span>
+				        <span class="panel-footer-text text-muted">${getDate}</span>
+				        <span class="glyphicon glyphicon-eye-open"></span>
+				        <span class="panel-footer-text text-muted"><em>${article.click}</em>已阅读</span>
+				      </div>
+			    	</div>
+					`
+		})
+		return html;	
+	}
+	function buildPaginationHtml(list,page){
+		var html = '';
+		html += `<li>
+				      <a href="javascript:;" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+			    </li>`;
+		list.forEach(function(i){
+			if(page == i){
+				html += `<li class="active"><a href="javascript:;">${ i }</a></li>`
+			}else{
+				html += `<li><a href="javascript:;">${ i }</a></li>`
+			}
+		});
+		html += `<li>
+				      <a href="javascript:;" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+			    </li>`;
+		return html;
+
+	}	
+	$articleList.on('get-data',function(ev,data){
+		console.log(data)
+		$articleWrap.html(buildArticleListHtml(data.docs));
+		if(data.pages>1){
+			$articleList.html(buildPaginationHtml(data.list,data.page));
+		}else{
+			$articleList.html('')
+		}
+		
+
+	})
+	$articleList.getArticlePage({
+		url:'/articles'
+	})
 })(jQuery);

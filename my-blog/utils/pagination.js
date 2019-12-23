@@ -5,6 +5,7 @@
 //objection:数据库返回过滤掉的内容
 //model:操作的数据库名称
 //sort:排序
+//populates:填充数组（渲染关联页面）
 async function pagination(options){
 	let { limit,page,model,query,projection,sort,populates } = options;
 
@@ -31,7 +32,13 @@ async function pagination(options){
 	}
 
 	const skip = (page-1)*limit;
-	const docs = await model.find(query,projection)
+	let result = model.find(query,projection)
+	if(populates){
+		populates.forEach(populate=>{
+			result = result.populate(populate)
+		})
+	}
+	const docs = await result
 	.sort(sort)
 	.skip(skip)
 	.limit(limit)

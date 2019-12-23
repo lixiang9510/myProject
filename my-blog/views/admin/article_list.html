@@ -20,9 +20,9 @@
             {% for val in users %}
             <tr> 
               <td>{{val.title}}</td>
-              <td>{{val.category}}</td>
-              <td>{{val.author}}</td>
-              <td>{{val.createAt}}</td>
+              <td>{{val.category.name}}</td>
+              <td>{{val.author.username}}</td>
+              <td>{{val.createAt | date("Y年m月d日 H:i:m",-8*60)}}</td>
               <td>{{val.click}}</td>
               <td>
               	<a href="/article/view/{{ val._id.toString() }}">详情</a>

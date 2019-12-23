@@ -1,0 +1,22 @@
+<nav aria-label="Page navigation">
+  <ul class="pagination" id="article-list">
+    <li>
+	      <a href="javascript:;" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+    </li>
+    {% for i in list %}
+    {% if page == i %}
+    	<li class="active"><a href="javascript:;">{{ i }}</a></li>
+    {% else %}
+    	<li><a href="javascript:;">{{ i }}</a></li>
+    {% endif %}
+    
+    {% endfor %}
+    <li>
+	      <a href="javascript:;" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+    </li>
+  </ul>
+</nav>

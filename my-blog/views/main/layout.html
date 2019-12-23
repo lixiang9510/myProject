@@ -152,14 +152,12 @@
             </div>
             <div class="panel-body">
               <ul class="list-group">
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>                                                 
+                {% for article in topArticles %}
+                <li class="list-group-item">
+                  <a href="/view/{{ article._id.toString() }}" class="link text-ellipsis" target="_blank">[{{article.click}}]  {{article.title}}
+                  </a>
+                </li>
+                {% endfor %}
               </ul>     
             </div>
           </div>
@@ -180,10 +178,12 @@
   </footer>
 
 
-<script src="lib/jquery/jquery-1.12.4.min.js"></script>	
-<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="/lib/jquery/jquery-1.12.4.min.js"></script>	
+<script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="/lib/moment/moment.js"></script>
 <script src="/js/layout.js"></script>
-<script src="js/common.js"></script>
+<script src="/js/articlePage.js"></script>
+<script src="/js/common.js"></script>
 {% block footer %}{% endblock %}
 </body>
 

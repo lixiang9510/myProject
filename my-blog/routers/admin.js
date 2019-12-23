@@ -25,42 +25,6 @@ router.get("/",(req,res)=>{
 
 //用户列表渲染
 router.get("/users",(req,res)=>{
-	/*
-	const limit = 2;
-	let { page } = req.query;
-	page = parseInt(page)
-	if(isNaN(page)){
-		page = 1
-	}
-	UserModel.countDocuments({})
-	.then(counts=>{
-		const pages = Math.ceil(counts/limit)
-		
-		if(page == 0){
-			page = 1
-		}
-		if(page>pages){
-			page = pages
-		}
-		let list = [];
-		for(i=1;i<=pages;i++){
-			list.push(i)
-		}
-		const skip = (page-1)*limit;
-		UserModel.find({},"-password -__v")
-		.skip(skip)
-		.limit(limit)
-		.then(users=>{
-			res.render('admin/user-list',{
-				userInfo:req.userInfo,
-				users,
-				page,
-				list,
-				pages
-			})	
-		})
-	})
-	*/
 	const options = {
 		limit:2,
 		page:req.query.page,
