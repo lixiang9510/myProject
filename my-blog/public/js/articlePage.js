@@ -8,6 +8,7 @@
 	$.fn.extend({
 		getArticlePage:function(options){
 			var $elem = $(this)
+			
 			$elem.on('click','a',function(ev){
 				var $this = $(this);
 				var currentPage = $elem.find('.active a').html();
@@ -24,8 +25,13 @@
 				if( page == currentPage ){
 					return false;
 				}
+				var id = $elem.data('id');
+				var url = options.url + '?page=' + page;
+				if(id){
+					url += "&id=" + id;
+				}
 				$.ajax({
-					url:options.url + '?page=' + page,
+					url:url,
 					dataType:'json'
 				})
 				.done(function(result){

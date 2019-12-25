@@ -115,7 +115,7 @@
 			html += `<div class="panel panel-default content-item">
 				      <div class="panel-heading">
 				        <h3 class="panel-title">
-				          <a href="detail.html" class="link" target="_blank">${article.title}</a>
+				          <a href="/view/${article._id.toString()}" class="link" target="_blank">${article.title}</a>
 				        </h3>
 				      </div>
 				      <div class="panel-body">
