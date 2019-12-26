@@ -28,7 +28,7 @@
 			}
 		})
 		.done(function(result){
-			window.location.reload();
+			window.location.reload();  
 		})
 		.fail(function(err){
 			console.log(err)
