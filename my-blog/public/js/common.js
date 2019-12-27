@@ -156,20 +156,47 @@
 				      </a>
 			    </li>`;
 		return html;
-
 	}	
 	$articleList.on('get-data',function(ev,data){
-		console.log(data)
 		$articleWrap.html(buildArticleListHtml(data.docs));
 		if(data.pages>1){
 			$articleList.html(buildPaginationHtml(data.list,data.page));
 		}else{
 			$articleList.html('')
 		}
-		
-
 	})
 	$articleList.getArticlePage({
 		url:'/articles'
+	})
+	//文章评论分页
+	const $commentList = $('#comment-list');
+	var $commentWrap = $('#comment-wrap');
+	function buildCommentListHtml(comments){
+		var html = '';
+		comments.forEach(function(comment){
+			var getDate = moment(comment.createAt).format('YYYY年MM月DD号 HH:mm:ss');
+			html += `<div class="panel panel-default">
+				        <div class="panel-heading">
+				          ${comment.commentUser.username} 
+				          <p>发表于 </p>
+				          ${getDate}
+				        </div>
+				        <div class="panel-body">
+				          ${comment.content}
+				        </div>
+				     </div>`
+		})
+		return html;	
+	}	
+	$commentList.on('get-data',function(ev,data){
+		$commentWrap.html(buildCommentListHtml(data.docs));
+		if(data.pages>1){
+			$commentList.html(buildPaginationHtml(data.list,data.page));
+		}else{
+			$commentList.html('')
+		}
+	})
+	$commentList.getArticlePage({
+		url:'/comments'
 	})
 })(jQuery);

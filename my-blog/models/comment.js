@@ -21,9 +21,9 @@ const CommentSchema = new mongoose.Schema({
 	}
 
 })
-CommentSchema.statics.getPaginationComments=function(req,query={}){
+CommentSchema.statics.getPaginationComments=function(req,query={},limit=2){
 	const options = {
-		limit:2,
+		limit:limit,
 		page:req.query.page,
 		query:query,
 		projection:"-password -__v",

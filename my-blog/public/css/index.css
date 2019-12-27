@@ -17,3 +17,6 @@
 #sub-comment{
 	padding:25px 25px;
 }
+#comment-wrap{
+	min-height:300px;
+}

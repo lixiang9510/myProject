@@ -99,7 +99,8 @@ router.get('/view/:id',(req,res)=>{
 			comments:commentPage.docs,
 			page:commentPage.page,
 			list:commentPage.list,
-			pages:commentPage.pages
+			pages:commentPage.pages,
+			categoryId:id
 		})	
 	})
 	.catch(err=>{
@@ -129,6 +130,24 @@ router.get('/list/:id',(req,res)=>{
 		.catch(err=>{
 			console.log(err)
 		})
+	})
+})
+//处理评论ajax
+router.get('/comments',(req,res)=>{
+	const {id} = req.query;
+	let query = {};
+	if(id){
+		query.articleId = id
+	}
+	CommentModel.getPaginationComments(req,query)
+	.then(data=>{
+		res.json({
+			status:0,
+			data
+		})	
+	})
+	.catch(err=>{
+		console.log(err)
 	})
 })
 module.exports = router

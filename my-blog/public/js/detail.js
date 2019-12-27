@@ -12,7 +12,7 @@
 		if(!content){
 			$err.html('评论不能为空');
 			return false;
-		}else if(content.length>5){
+		}else if(content.length>100){
 			$err.html('评论最长不能唱过100字符');
 			return false;
 		}else{
@@ -28,7 +28,10 @@
 			}
 		})
 		.done(function(result){
-			window.location.reload();  
+			if(result.status == 0){
+				$('#comment-content').val('');
+				$('#comment-list').trigger('get-data',result.data)
+			}
 		})
 		.fail(function(err){
 			console.log(err)

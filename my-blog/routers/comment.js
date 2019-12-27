@@ -23,11 +23,15 @@ router.post('/add',(req,res)=>{
 		articleId,
 		commentUser:req.userInfo._id
 	})
-	.then(result=>{
-		res.json({
-			status:0,
-			message:'评论成功'
+	.then(comments=>{
+		CommentModel.getPaginationComments(req,{articleId})
+		.then(data=>{
+			res.json({
+				status:0,
+				data
+			})			
 		})
+
 	})
 	.catch(err=>{
 		console.log(err);

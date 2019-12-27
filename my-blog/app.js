@@ -83,6 +83,7 @@ app.use((req,res,next)=>{
 app.use('/',require('./routers/index.js'))
 app.use('/user',require('./routers/user.js'))
 app.use('/admin',require('./routers/admin.js'))
+app.use('/home',require('./routers/home.js'))
 app.use('/category',require('./routers/category.js'))
 app.use('/article',require('./routers/article.js'))
 app.use('/comment',require('./routers/comment.js'))

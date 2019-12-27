@@ -8,6 +8,8 @@
 	</div>
 	{% if url %}
 	<a href="{{url}}">返回列表</a>
+	{% elseif go %}
+	<a href="{{go}}">去登录</a>
 	{% else %}
 	<a href="javascript:window.history.back();"></a>
 	{% endif %}

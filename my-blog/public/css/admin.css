@@ -16,6 +16,9 @@
 .page-header{
 	margin-bottom: 20px;
 }
-.ck-rounded-corners {
+.ck-rounded-corners{
 	height: 200px;
+}
+#for-add-comment-height{
+	min-height: 400px;
 }
