@@ -1,0 +1,7 @@
+1.先引入webpack的基本配置，注意入口和出口，以及最后的模板文件出口
+2.创建src,文件夹，里面index.js为入口文件，index.html为模板文件
+3.安装react和react-dom，  npm install --save react react-dom
+4.nodejs引入用require，react使用的是ES6语法，里面的引入import from  先引入react、react-dom
+  然后 ReactDom.render(<h1>hello，world！</h1>,document.getElementById('root'));
+5.安装label，是工具链，将ES6语法转化为js语法  
+6.另一种方法，使用脚手架工具 npx create-react-app 01-app
