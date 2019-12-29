@@ -5,3 +5,7 @@
   然后 ReactDom.render(<h1>hello，world！</h1>,document.getElementById('root'));
 5.安装label，是工具链，将ES6语法转化为js语法  
 6.另一种方法，使用脚手架工具 npx create-react-app 01-app
+7.引入用import from  导出用export 导出的是一个对象，接收要用对象形式接收，可以重命名a为a1
+ ｛a as  a1｝,
+8.jsx语法就是：html标签里面的注释要在｛｝里面写，基本都是写在｛｝里面，自定义组件必须大写字母开头
+  不想要div标签时，可以引入flagment标签，render方法里面的return不能返回空行 加类名必须为className
