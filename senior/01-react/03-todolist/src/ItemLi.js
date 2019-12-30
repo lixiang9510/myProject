@@ -3,6 +3,16 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types'
 
 class ItemLi extends Component{
+	constructor(props){
+		super(props);
+		this.state={
+			list:[]
+		}
+
+	}
+	// componentWillUnmount(){
+	// 	console.log('componentWillUnmount()....')
+	// }
 	render(){
 		const { handleDel,content } = this.props;
 		return(

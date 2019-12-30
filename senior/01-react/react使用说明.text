@@ -9,3 +9,5 @@
  ｛a as  a1｝,
 8.jsx语法就是：html标签里面的注释要在｛｝里面写，基本都是写在｛｝里面，自定义组件必须大写字母开头
   不想要div标签时，可以引入flagment标签，render方法里面的return不能返回空行 加类名必须为className
+9.antd使用：网址：https://ant.design 安装npm install antd --save 例如引用一个日期组件 
+  import { datePiker } from 'antd'  css时可以按需加载 安装 npm install --save-dev babel-plugin-import 然后配置babel 以后都不用引入css //bootstap是jquery的一个ui库

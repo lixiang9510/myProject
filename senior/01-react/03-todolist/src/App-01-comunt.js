@@ -1,13 +1,13 @@
 // export const a = 2;
 
 import React,{Component,Fragment} from 'react';
-import { DatePicker } from 'antd';
 import ItemLi from './ItemLi.js'
 import './App.css'
 
 
 class App extends Component{
 	constructor(props){
+		console.log('constructor...')
 		super(props);
 		this.state={
 			list:["睡觉","吃饭","学习"],
@@ -16,7 +16,30 @@ class App extends Component{
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-	
+	static getDerivedStateFromProps(nextProps,prevState){
+		console.log('App  getDerivedStateProps(nextProps,prevState)',nextProps,prevState)
+		return {
+			
+		}
+	}
+	shouldComponentUpdate(nextProps,prevState){ //应不应该更新
+		console.log('App shouldComponentUpdate(nextProps,prevState)',nextProps,prevState)
+		return true
+	}
+	getSnapshotBeforeUpdate(nextProps,prevState){
+		console.log('App getSnapshotBeforeUpdate(nextProps,prevState)',nextProps,prevState)
+		return 123;
+
+	}
+	componentDidUpdate(nextProps,prevState,snaoshot){
+		console.log('App componentDidUpdate(nextProps,prevState,snaoshot)',nextProps,prevState,snaoshot)
+	}
+	componentDidMount(){
+		console.log('App   componentDidMount...')
+	}
+	componentWillUnmount(){
+		console.log('componentDidUnmount()....')
+	}
 	handleAdd(){
 		this.setState(preState=>{
 			return {
@@ -49,6 +72,7 @@ class App extends Component{
 		})
 	}
 	render(){
+		console.log('App render   ')
 		return (
 			<div className="App">
 				<input 
@@ -66,7 +90,6 @@ class App extends Component{
 						this.getItem()
 					}
 				</ul>
-				<DatePicker />
 			</div>
 			)
 	}
