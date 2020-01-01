@@ -64,7 +64,7 @@ class App extends Component{
 					</Col>
 				</Row>
 				<List 
-					style={{marginTop:'10px'}}  
+					style={{marginTop:'10px'}}
 					bordered
 					dataSource={this.state.list}
 					renderItem={
