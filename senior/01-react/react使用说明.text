@@ -11,3 +11,7 @@
   不想要div标签时，可以引入flagment标签，render方法里面的return不能返回空行 加类名必须为className
 9.antd使用：网址：https://ant.design 安装npm install antd --save 例如引用一个日期组件 
   import { datePiker } from 'antd'  css时可以按需加载 安装 npm install --save-dev babel-plugin-import 然后配置babel 以后都不用引入css //bootstap是jquery的一个ui库
+10.react发送ajax用axios
+11.redux-thunk可以让store.dispatch派发函数。安装》在store里面使用，配置。然后actionCreator就可以返    回函数
+12.redux-logger可以显示一下页面加载信息
+13.react-redux可以将store简单化，不用每个组件都引入store 现在index.js里面引入及配置 然后在app.js里面引入connect
