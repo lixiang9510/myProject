@@ -15,3 +15,7 @@
 11.redux-thunk可以让store.dispatch派发函数。安装》在store里面使用，配置。然后actionCreator就可以返    回函数
 12.redux-logger可以显示一下页面加载信息
 13.react-redux可以将store简单化，不用每个组件都引入store 现在index.js里面引入及配置 然后在app.js里面引入connect
+14.immutable 为了提高数据响应速度，该更新的数据更新，不该更新的数据继承。redux-immutable
+   可以让reducer也变成Map数据
+15.路由在地址栏中输入井号，后面跟的都是hash值，页面不会从新加载 react-router-dom 
+   文档地址：https://reacttraining.com/react-router

@@ -1,0 +1,15 @@
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.App ul{
+	height: 40px;
+}
+.App ul li{
+	list-style: none;
+	float: left;
+	margin-right: 5px;
+	height: 40px;
+}
