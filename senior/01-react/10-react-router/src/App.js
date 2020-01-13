@@ -30,7 +30,7 @@ class User extends Component{
 
 	}
 }
-class Login extends Component{
+class Login extends Component{   
 	render(){
 		return <h1>this is Login page</h1>
 	}
