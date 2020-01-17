@@ -32,9 +32,9 @@ class User extends Component{
 }
 class Login extends Component{  
 	render(){
-		return <h1>this is Login page</h1>  
+		return <h1>this is Login page</h1>     
 	}
-}
+}   
 class App extends Component{
 	constructor(props){
 		super(props);
