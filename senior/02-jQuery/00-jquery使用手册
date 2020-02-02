@@ -1,0 +1,23 @@
+1.官方网站：https:jquery.com
+2.用更少的代码，做更多的事，几乎兼容所有浏览器
+3.jQuery下载地址https://code.jquery.com/  1版本兼容ie678,其他版本不兼容ie678
+4.https://cdnjs.com  好多资料放到服务器上，这种可以直接引用,
+  减轻自己服务器压力可以自动缓存，提高效率
+5.$(this).hide() - 隐藏当前元素 $("p").hide() - 隐藏所有 <p> 元素
+  $("p.test").hide() - 隐藏所有 class="test" 的 <p> 元素 
+  $("#test").hide() - 隐藏所有 id="test" 的元素
+6.jQuery 入口函数与 JavaScript 入口函数的区别：
+  jQuery 的入口函数是在 html 所有标签(DOM)都加载之后，就会去执行。
+  JavaScript 的 window.onload 事件是等到所有内容，包括外部图片之类的文件加载完后，才会执行。
+7.$("*")	选取所有元素
+  $(this)	选取当前 HTML 元素
+  $("p.intro")	选取 class 为 intro 的 <p> 元素
+  $("p:first")	选取第一个 <p> 元素
+  $("ul li:first")	选取第一个 <ul> 元素的第一个 <li> 元素
+  $("ul li:first-child")	选取每个 <ul> 元素的第一个 <li> 元素
+  $("[href]")	选取带有 href 属性的元素
+  $("a[target='_blank']")	选取所有 target 属性值等于 "_blank" 的 <a> 元素
+  $("a[target!='_blank']")	选取所有 target 属性值不等于 "_blank" 的 <a> 元素
+  $(":button")	选取所有 type="button" 的 <input> 元素 和 <button> 元素
+  $("tr:even")	选取偶数位置的 <tr> 元素
+  $("tr:odd")	选取奇数位置的 <tr> 元素

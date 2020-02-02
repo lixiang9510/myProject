@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		body{
+			height: 700px;
+		}
+		div{
+			border:1px solid black;
+			width:200px;
+			height:100px;
+			overflow:scroll
+		}
+	</style>
+</head>
+<body>
+	<button class="btn1">鼠标事件</button>
+	<p>哈哈哈</p>
+	<input type="text">
+	<div>sadfasihfiasfj奇偶地方骄傲ijsajdfioasjf哦iasdjfisadfjadsfjiaosd偶就放假啊司法啊啊色戒分is地激发 </div>
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	//鼠标事件
+	$('.btn1').click(function(){
+		console.log('this is btn1 click')
+	})
+	$('.btn1').dblclick(function(){//双击两次
+		console.log('this is btn click two')
+	})
+	$('.btn1').mouseenter(function(){
+		console.log('this is btn1 enter')
+	})
+	$('.btn1').mouseleave(function(){
+		console.log('this is btn1 leave')
+	})
+	/*
+	hover() 方法规定当鼠标指针悬停在被选元素上时要运行的两个函数。
+	方法触发 mouseenter 和 mouseleave 事件。
+	注意: 如果只指定一个函数，则 mouseenter 和 mouseleave 都执行它。
+	*/
+	$('.btn1').hover(function(){
+		$('p').css("color","yellow")
+	},function(){
+		$('p').css("color","red")
+	})
+
+	//键盘事件
+	$(document).keypress(function(){
+		console.log('keypress press')
+	})
+	$(document).keydown(function(){
+		console.log('keypress down')
+	})
+	$(document).keyup(function(){
+		console.log('keypress up')
+	})
+	//表单事件
+	$('input').submit(function(){
+		console.log('submit')
+	})
+	$('input').change(function(){//失去焦点时才触发
+		console.log('input value had changed')
+	})
+	$('input').focus(function(){
+		console.log('聚焦触发')
+	})
+	$('input').blur(function(){
+		console.log('失去焦点触发')
+	})
+	//文档、窗口事件
+	$('input').load(function(){
+		console.log('input is had been load')
+	})
+	$(window).resize(function(){
+		console.log('window size had changed')
+	})
+	$('div').scroll(function(){
+		console.log('mouse scroll')
+	})
+</script>
+</html>

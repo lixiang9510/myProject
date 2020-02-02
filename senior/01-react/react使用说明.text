@@ -19,3 +19,5 @@
    可以让reducer也变成Map数据
 15.路由在地址栏中输入井号，后面跟的都是hash值，页面不会从新加载 react-router-dom 
    文档地址：https://reacttraining.com/react-router
+16.解决h5路由重新刷新页面问题，在webpack里面配置historyApiFallback
+17.解决传参数的时候重新刷新页面不是从根目录访问页面：在webpack里面配置出口：publicPath：'/';
