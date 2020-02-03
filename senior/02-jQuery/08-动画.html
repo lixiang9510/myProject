@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style>
+		#box1{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">开始动画</button>
+	<button id="btn2">停止动画</button>
+	<div id="box1"></div>
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#btn1').click(function(){
+			/*
+			//多个属性同时动画
+			$('#box1').animate({
+				left:"250px",
+				opacity:"0.5",
+				width:'150px',
+				height:'150px'
+			})
+			*/
+			/*
+			//使用相对值
+			$('#box1').animate({
+				width:"+=150px",
+				height:"+=150px"
+			})
+			*/
+			/*
+			//使用预定义值，可以把动画对象设置成show,hide,toggle
+			$('#box1').animate({
+				width:"toggle",
+				height:"toggle"
+			})
+			*/
+			//使用队列动画，依次动画
+			$('#box1').animate({width:"150px"},"slow");
+			$('#box1').animate({height:"150px"},"slow");
+			$('#box1').animate({opacity:"0.5"},"slow");
+			$('#box1').animate({left:"150px"},"slow");
+			$('#box1').animate({top:"150px"},"slow");
+		})
+		$('#btn2').click(function(){
+			/*
+			$(selector).stop(stopAll,goToEnd);
+			可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+			可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
+			*/
+			$('#box1').stop(false,true);
+		})
+		
+	})
+</script>
+</html>

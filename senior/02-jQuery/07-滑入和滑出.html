@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.folder{
+			display: inline-block;
+			box-sizing: border-box;
+			width: 100px;
+			height:50px;
+			padding: 10px;
+			border: 1px solid black;
+			text-align: center;
+			background-color: green;
+		}
+		.folder2{
+			margin: -5px;
+		}
+		.file{
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			text-align: center;
+			background-color: red;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="folder folder1">点击下拉</div>
+	<div class="folder folder2">点击收回</div>
+	<div class="folder folder3">点击切换</div>
+	<div class="file">下拉内容</div>
+	
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	$(function(){
+		$(".folder1").click(function(){
+			$('.file').slideDown()
+		})
+		$(".folder2").click(function(){
+			$('.file').slideUp()
+		})
+		$(".folder3").click(function(){
+			$('.file').slideToggle()
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>显示和隐藏</title>
+</head>
+<body>
+	<div id="box1" style="width: 100px;height: 100px;background-color: red;display: none;margin-top: 10px;"></div>
+	<div id="box2" style="width: 100px;height: 100px;background-color: red;display: none;margin-top: 10px;"></div>
+	<div id="box3" style="width: 100px;height: 100px;background-color: red;display: none;margin-top: 10px;"></div>
+	<button class="btn1">显示</button>
+	<button class="btn2">隐藏</button>
+	<button class="btn3">切换</button>
+	<button class="btn4">变淡</button>
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	$(function(){
+		$('.btn1').click(function(){
+			//第一个参数是时间，slow,fast,毫秒
+			$('#box1').fadeIn()
+			$('#box2').fadeIn('slow')
+			$('#box3').fadeIn(3000)
+			//第二个参数是
+		})
+		$('.btn2').click(function(){
+			$('#box1').fadeOut()
+			$('#box2').fadeOut('slow')
+			$('#box3').fadeOut(3000)
+		})
+		$('.btn3').click(function(){
+			$('#box1').fadeToggle()
+			$('#box2').fadeToggle('slow')
+			$('#box3').fadeToggle(3000)
+		})
+		$('.btn4').click(function(){
+			//这个会将本来隐藏的元素显示出来
+			$('#box1').fadeTo(1000,0.2)
+			$('#box2').fadeTo(1000,0.4)
+			$('#box3').fadeTo(1000,0.6)
+		})
+	})
+</script>
+</html>

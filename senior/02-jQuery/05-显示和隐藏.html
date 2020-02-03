@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>显示和隐藏</title>
+	<style>
+		div{
+			width: 200px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div>我是一个盒子</div>
+	<button class="btn1">显示</button>
+	<button class="btn2">隐藏</button>
+	<button class="btn3">切换</button>
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	$(function(){
+		$('.btn1').click(function(){
+			//第一个参数slow,fast,毫米
+			// $('div').show('slow');
+			// $('div').show('fast');
+			//第二个参数是一个字符串，表示过度效果,linear,swing
+			// $('div').show(1000,'linear');
+			// $('div').show(1000,'swing');
+			//第三个参数是一个回调函数，动画结束执行
+			$('div').show(1000,'linear',function(){
+				console.log('show done')
+			});
+
+		})
+		$('.btn2').click(function(){
+			$('div').hide(1000,'linear');
+		})
+		$('.btn3').click(function(){
+			$('div').toggle(1000,'swing',function(){
+				console.log('切换完成')
+			})
+		})
+	})
+</script>
+</html>

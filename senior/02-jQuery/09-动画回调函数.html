@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画回调函数</title>
+	<style>
+		#box1{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">开始动画</button>
+	<button id="btn2">停止动画</button>
+	<div id="box1"></div>
+</body>
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+	//stop可以停止一切过渡效果
+	$(document).ready(function(){
+		$('#btn1').click(function(){
+			$('#box1').animate({width:"500px"},3000,function(){
+				console.log('aa')
+			})
+			$('#box1').animate({height:"500px"},3000,function(){
+				console.log('bb')
+			})
+		})
+		$('#btn2').click(function(){
+			$('#box1').stop(false,true)
+		})
+	})
+</script>
+</html>
