@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js的使用方法-内部</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script>
+		
+		function toBig(){
+			var oDiv = document.getElementById('box');
+			oDiv.style.width = '200px';
+			oDiv.style.height = '200px';
+			oDiv.style.backGroundColor = 'blue';
+		}
+		function toSmall(){
+			var oDiv = document.getElementById('box');
+			oDiv.style.width = '100px';
+			oDiv.style.height = '100px';
+			oDiv.style.backGroundColor = 'red';
+		}
+	</script>
+</head>
+<body>
+	<div id="box" onmouseover="toBig()" onmouseout="toSmall()"></div>
+</body>
+</html>

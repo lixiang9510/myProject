@@ -1,0 +1,4 @@
+1.获取元素 document.getElementById('box')
+2.行间样式里面增加样式时需要注意是否应该加 style
+3.input属性的title是直接添加的
+4.添加class在行间用className

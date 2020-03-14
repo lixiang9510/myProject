@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>免登陆提示</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		input{
+			position: absolute;
+			top: 0px;
+			left: 50%;
+			margin-left: -50px;
+			width: 100px;
+			text-align: center;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background:red;
+			margin: 100px auto;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="button"
+	value="七天免登陆" 
+			onmouseover="document.getElementById('box').style.display='block'"
+			onmouseout="document.getElementById('box').style.display='none'"
+	>
+	<div id="box"></div>
+</body>
+</html>
