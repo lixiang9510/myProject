@@ -1,4 +1,14 @@
-1.获取元素 document.getElementById('box')
+1.获取元素 document.getElementById('box') document.getElementsByTagName('input') 
+document.querySelectorAll('#box li') document.querySelector('选择器')
 2.行间样式里面增加样式时需要注意是否应该加 style
 3.input属性的title是直接添加的
 4.添加class在行间用className
+5.修改多个属性时，引号里面的相当于js语句，符合js规则
+6.浏览器渲染机制：什么都不加，js文件的下载和执行都会阻塞dom的渲染，加defer,js文件的下载不会阻塞，加载会在dom渲染完毕开始执行，加async，下载不会阻塞，但是下载完毕会立即执行，两个对内部使用都无效。
+7.绑定事件：document.addEventListener('事件名'，function(){})
+8.浏览器常见输入方式：console.log() console.error() console.warn() document.write()
+document.innerHTML() innerHTML还可以获取内容
+9.用参数更改css样式时，格式为oBox.style[attr] = value,更改属性是[]可以代替所有的'.',但是所有
+的'.'不一定能用[]，代替，另外注意用[]时注意里面期待的是一个字符串
+10.获取样式：getComputedStyle(obj,false)[attr]
+11.arr.sort(function(arg1,arg2){return arg1-arg2})升序 反之降序
