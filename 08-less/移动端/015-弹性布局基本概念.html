@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局基本概念</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width: 800px;
+			height: 500px;
+			border: 2px solid #ccc;
+			margin: 100px auto;
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: #f68
+		}
+		.son2{
+			width: 200px;
+			background-color: #f22
+		}
+		.son3{
+			width: 300px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>

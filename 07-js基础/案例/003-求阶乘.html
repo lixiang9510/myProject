@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求阶乘</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(){
+		function factorial(num){
+			var result = 0;
+			if(num == 1){
+				return result = num;
+			}else{
+				// return num * factorial(num-1)
+				return num * arguments.callee(num-1)
+			}
+		}
+		console.log(factorial(5))
+	})()
+</script>
+</html>

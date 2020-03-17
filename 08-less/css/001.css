@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*这个注释会被保留*/
+.box {
+  width: 200px;
+  height: 100px;
+  color: #ff6688;
+  background-color: grey;
+  margin-bottom: 20px;
+}
+.box2 {
+  /*
+	width: @width;
+	height:@height;
+	color:@color;
+	background-color: grey;
+	*/
+  width: 200px;
+  height: 100px;
+  color: #ff6688;
+  background-color: grey;
+  margin-bottom: 20px;
+}
+.box3 {
+  width: 200px;
+  height: 100px;
+  color: #ff6688;
+  background-color: grey;
+  margin-bottom: 20px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+.box4 {
+  /*
+	width: 0;
+	height: 0;
+	border-style: solid;
+	overflow: hidden;
+	*/
+  border-width: 50px;
+  border-color: #ff0000 transparent transparent transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  overflow: hidden;
+}
+.father {
+  width: 600px;
+}
+.father li {
+  width: 100%;
+  background-color: #ccc;
+}
+.father li span {
+  float: left;
+  color: blue;
+}
+.father li a {
+  float: right;
+  text-decoration: none;
+  color: red;
+}
+.box5 {
+  font-size: 5px;
+}
+.box6 {
+  font-size: calc(50px - 20px);
+}
+.box7 {
+  width: 200px !important;
+  height: 100px !important;
+  color: #ff6688 !important;
+  background-color: grey !important;
+  margin-bottom: 20px !important;
+}
+.box8 {
+  width: 100px;
+  color: red;
+}

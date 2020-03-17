@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求和</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(){
+		var result = 0;
+		console.log(arguments)
+		for(var i=0;i<arguments.length;i++){
+			result += arguments[i]
+		}
+		return result;
+	}
+	console.log(sum(4,5,6,7))
+</script>
+</html>

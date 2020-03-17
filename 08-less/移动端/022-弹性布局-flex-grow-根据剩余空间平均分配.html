@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-弹性布局-flex-grow-根据剩余空间平均分配</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 500px;
+			border: 2px solid #ccc;
+			margin: 100px auto;
+			display: flex;
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: #f68;
+			flex-grow: 1;
+			/*剩余空间除以这个数然后分配*/
+		}
+		.son2{
+			width: 200px;
+			background-color: #f22;
+			flex-grow: 0;
+		}
+		.son3{
+			width: 300px;
+			background-color: yellow;
+			flex-grow: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>

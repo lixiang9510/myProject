@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-less屏幕适配尺寸</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/001.屏幕适配.css">
+</head>
+<body>
+	<img src="img/girl.jpg" alt="">
+	<p>我是美女。。。哈哈哈</p>
+</body>
+<script>
+	(function(win,doc){
+		var oRoot = doc.getElementsByTagName('html')[0]
+		function refreshFontSize(){
+			var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+			var iFontSize = iWidth / 10;
+			oRoot.style.fontSize = iFontSize +'px';
+		}
+		win.addEventListener('resize',refreshFontSize,false);
+		win.addEventListener('DOMContentLoaded',refreshFontSize,false)
+	})(window,document)
+</script>
+</html>

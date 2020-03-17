@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  float: left;
+  width: 5rem;
+}
+p {
+  float: left;
+  font-size: 0.3125rem;
+  margin: 0.3125rem 0.625rem;
+  border-style: solid;
+  border-color: red;
+  border-width: 0.03125rem 0.0625rem 0.09375rem 0.125rem;
+}

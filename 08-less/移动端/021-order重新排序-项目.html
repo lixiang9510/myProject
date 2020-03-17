@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-order重新排序-项目t</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 500px;
+			border: 2px solid #ccc;
+			margin: 100px auto;
+			display: flex;
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: #f68;
+			order:1;
+			/*越小越往前排*/
+		}
+		.son2{
+			width: 200px;
+			background-color: #f22;
+			order:-1;
+		}
+		.son3{
+			width: 300px;
+			background-color: yellow;
+			order:2;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>

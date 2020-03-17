@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-弹性布局垂直对其方式-align-item-align-content</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 500px;
+			border: 2px solid #ccc;
+			margin: 100px auto;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+
+			/*align-items: stretch;*/
+			/*align-content: stretch;*/
+			/*如果没有设置高度，会占据父容器整个高度*/
+
+			/*align-items: flex-start;*/
+			align-content: flex-start;
+			/*起点对齐*/
+			
+			/*align-items: flex-end;*/
+			/*align-content: flex-end;*/
+			/*终点对齐*/
+
+			/*align-items: center;*/
+			/*align-content: center;*/
+			/*中点对齐*/
+			
+			/*align-items: baseline;*/
+			/*align-content: baseline;*/
+			/*项目的第一行文字基线对齐*/
+
+	
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: #f68
+		}
+		.son2{
+			width: 400px;
+			background-color: #f22
+		}
+		.son3{
+			width: 600px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>
