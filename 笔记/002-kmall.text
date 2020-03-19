@@ -1,0 +1,3 @@
+1.构建项目目录，里面的插件要从新装一下，react/09-router作admin blog作server;
+2.为了解决css单独打包问题，不想写入style标签里，想用link引入：
+  安装： npm install --save-dev mini-css-extract-plugin

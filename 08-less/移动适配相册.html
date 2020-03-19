@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相册</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,use-scalable=0">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-image: url('http://pic1.win4000.com/wallpaper/2020-03-17/5e70979711a0f.jpg');
+			background-size: cover;
+		}
+		#imgs-root{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 11rem;
+			height: 13.2rem;
+			margin-left: -6.2rem;
+			margin-top: -5.6rem;
+			display: flex;
+			justify-content: center;
+		}
+		#imgs-root .box{
+			width: 12rem;
+			height: 13rem;
+			overflow: hidden;
+			border-radius: 20px;
+		}
+		#imgs-root .box img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="imgs-root">
+		<div class="box">
+			<img src="移动端/img/girl.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	//计算屏幕适配
+	;(function(win,doc){
+		var oRoot = doc.getElementsByTagName('html')[0];
+		function refreshFontSize(){
+			var iWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
+			var iFontSize = iWidth / 20;
+			oRoot.style.fontSize = iFontSize + 'px'
+		}
+		win.addEventListener('resize',refreshFontSize,false);
+		win.addEventListener('DOMContentLoaded',refreshFontSize,false);
+	})(window,document)
+
+	;(function(){
+		var oBox = document.querySelector('#imgs-root .box');
+		var oImg = document.querySelector('#imgs-root .box img');
+		var timer = 0;
+		var aImag = [
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotiwvxBCWeVQntvtVpN5GSvNniBRms1.YzUpfCVq75jhx9cSvCCeiM62r54Wz19sVayJOw*s.jwS1wmbzsFKfHmZc!/b&bo=yATsBcgE7AURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti.f6any3btAkUm1VGM*ZFDKNUuHPbkiiEQzRmEXB*8lEXXdkeZwoTionNgliKqt5BmUkhrGmgsf4o3g1Dx23aIg!/b&bo=yATwBcgE8AURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti8BjzCuBN.*8lC6YYELJNgKTqzrf2rnL7j7t2wz377I2mZ78PxDgks44j87C3*IHVFwmjWTs4D7mVuiby33*ykc!/b&bo=yAToBcgE6AURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotixSRFQKHuhAZbgTKj8F5.AqaH.QoxI6j.ltBORPnnXZ5nc.Vc4tsmsvLW*m1SXlWxwuKUQl0ujAcXlI2nhd1Tck!/b&bo=yAT1BcgE9QURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti*m*AxDgw.r.475w37MpRTXMHuMaf9Dbs2rf2mYEcHw6aJEHMEkZA0xISZYzDaLeEIHIcL8y1EqGbpMeUL8tUr8!/b&bo=vwTxBb8E8QURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti.FhDu53SX1r*u57KsmZT27hnGJcW.m4Zu.vmuAoCwT.*SQPi16zexbFFN08NYcsOxKYcWm9If8wBdNdHIDqW4k!/b&bo=yARgBsgEYAYRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotiztP0zVgs5eVjM1xUX8*kg98LUS0ALdHcKhRGed8vwU9TWb8EyZJudUixRZRN6CW90HztkbZaEEpEDNeaxUibhc!/b&bo=yATqBcgE6gURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti*wu9p4l6VeeWtMX9TCcq65m75gfZ6aSvAcsLiQgrhsSz6MgqLsicbql3C0OIOBeUdHCkwdcLUC.QSvnOCZk4EU!/b&bo=OASABzgEgAcRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti9QGmyb1AirtUFvug80lNLlxQWa5hCZ6xUlZjCGGDngBiLsbIkI51nWBbYZnffrd*g0xzQxEGCvVX9UpU0JeQmE!/b&bo=yATwBcgE8AURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti7e12c6ftYcd791YzLxk1Q*zjUpgyzmi.8pJH6jHDgDB0t7RIQp57Ec4xXq73y8RDS7XNGmPGJX1obE7UuPdTek!/b&bo=OASABzgEgAcRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti0wPfSSEStdaBP1dFBtsa9BKT1V.i3roVcZ.qw7yXQIKcIh*YPMRiLlnCxU1jhTpLP8KfkWvOGdzeQbZqiu82vM!/b&bo=yATzBcgE8wURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti9tbS23b3lXysclkSugqS943RIa1NYcftLundbtiNp8tdweh23Zl2IwNrOyXuZeucSiSvo0feQqzpMI.O4pgTtI!/b&bo=oAWAB6AFgAcRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti7F7a7KBNaEvbdTfG*YwBcS7rgHAGlDLo*EM63UejMQxaVNdbnrMzOQD241*hCPofXjkEyAiFT3jBKNhVbujbL4!/b&bo=iQIABYkCAAURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti2WBHUF.X*BY50WlrvQXGstOXRTBqcS3oyEp4z4ppZQUBR.HqvMkaoSvh72xXmfTS1FifVvpv3eDdtNRxf5QEqQ!/b&bo=yATzBcgE8wURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti8NS1g1s5p2hEPvNru2wwfSSF.LUkQzEzvHeP81rSguR0OdmzhTxllu1aWzNP4SGRd5qYXdBi7hkzyv6M1QgEnE!/b&bo=OASABzgEgAcRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti5wpaq98SsKnabPzMAwWk6TMLNnaHVYFbweXw77T1tYcvZMU24aaZcX5LgZI6CMzKp8ePJInOYQ0CYw.3IuO2AY!/b&bo=0ALAA9ACwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotiwuOLgT7IDCtikrJa0Tae6Ze2.FytL9NvvvgCpbSCv28bQyUDKVNaLg4MoFsLVNbLO4*748uB.G1hbyCrnFerxQ!/b&bo=HALAAxwCwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotiyMTD129AIWF4Zb9DZ0SsaNQuuVAVHQElSVc9.WCi1smdVlO57uCNnhLj6nTniX7FstUlqMNQsG4qmqfdLWI*9g!/b&bo=OASABzgEgAcRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/z4wcfyXMQjQ.Ifdxv6x54iGzbLP6gM6ny.50N2TnGAdwT2w6quo2fRVq1P7HMviMXdJKgIEDTkpFBda6I6U*Ug!!/b&bo=nQHAA50BwAMRCT4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti8mx4ZoBqhnP3TPPjhhPkh3iRq8TJFH7mvG84bbZeOqHFzcTIhvT3*xgDsFhseH8E8LA0IfzQP4*XLBE762cL4I!/b&bo=HALAAxwCwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotixzm2y58geDAXBOYMb0tCC8gP.hBH7UOIia5nQ3qW4lQ5jGr4nzwDV*lyAldS*11gXn9u3teIzTKzUU9STlnaSA!/b&bo=yATvBcgE7wURKR4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti0DSofHQM2SZ.bMaI94ILCTYF0yprYGOyPDk7*kHTybrc*r6715DrqcDetUCb7Lm9eHxTmyMnnNzGcK*nkSVfn8!/b&bo=VALAA1QCwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti2TycNFObGXPDGoFRF2rYdgeUVq1upQJ8OGLEYsnZ7xBjeUDvvMuXlYgz*gwTJwp24bNz*U2Ufm.za6eQWmYG2s!/b&bo=HALAAxwCwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti9OGAkq7IG8S9RV84AwttL568x01asdZ1kURhz2yzTXMilQaWEVQmU.f7JbviPuPhsSr5AQx*4rHssF0SKkltY4!/b&bo=ZgJKAmYCSgIRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotizNnU5Ju7J8pnsqocv*Q5BaPnOiL2yCviY3IaDOzdnAHypsw*ip0VRTKD3*4DV8RBnh8GPDkc*K4ISpjW.ghfDo!/b&bo=.gFAAvoBQAIRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti4z4hlBOjOEi3HtroW168ufSH9PishIOJ9kb140wmE5IwHnacHUYIy*DSoc9e1EBYVFdiOwXKs3j0pPyFZHaXTs!/b&bo=0ALAA9ACwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotixG5mDZu2IOnLb.dAjAf939Xc8*hg3SiVn6SK4HlJ*9CPrPF9EPBhyDktwXCrHSmTTRMzLYpqpzf19NgI7gn2.Y!/b&bo=xgK4AsYCuAIRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti19QdBEJRaKj5vNpTODOiM0s800g87z6yocaSz73CYwmd4hmDdgRVH1tnLqXnpYAsSPmXLYgekLforGwBTc8n7s!/b&bo=0ALAA9ACwAMRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti5.Z9tj6m6h*cQfK*2qSfWFKrc3GP.HRapuREA.WC.Gn3qsiUZmmpeu6MWv3BkMcMJNyUE6JRHpRxcEr3AfkNz8!/b&bo=yAT0BcgE9AURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti.iPodbGMAawK.0*E*W5w5hasGD2JImn4PEYtGQ549aJgF5syxGQuvT3ktecJFfvYBVIXEsCYh1Nq8b7In2I90w!/b&bo=yAT5BcgE.QURGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti3ilvT9M6y6Ri6NNQNGrNJUHlvYQja0kpmbN.iJpL0fl7WsX5XQMcD2YuWQ2aezxQD2Hwyw5.ozWbd7kdZAKiGw!/b&bo=oAWAB6AFgAcRGS4!&rf=viewer_4",
+			"http://b281.photo.store.qq.com/psb?/V10fh5zY2qvHyF/MbVamxJzkShVWEvyPlM6efOz.hlFfoX.fD52g4ZV2Ws!/b/dBkBAAAAAAAA&bo=OASgBQAAAAARJ4k!&rf=viewer_4",
+			"http://b277.photo.store.qq.com/psb?/V10fh5zY2qvHyF/Uv4mt1dTUwVwMbQ*N5RpsC*pRPK.0lA8Pw8VZXcPB4o!/b/dBUBAAAAAAAA&bo=OAQXCQAAAAARJzI!&rf=viewer_4",
+			"http://b159.photo.store.qq.com/psb?/V10fh5zY2qvHyF/.jA3wqhrd7QyEclUm4Uk8IYrB6bWMnSz2WVb4Wsx64w!/b/dJ8AAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotizRwAofEzSxiKnmf59Jxty3Yu5U6ek6lmpuqx*T8qvRvGPcZZV*VpwBCHYIydQMfhAQJ1s96Eo6QB8G6jaITq1A!/b&bo=yAQKBsgECgYRGS4!&rf=viewer_4",
+			"http://b281.photo.store.qq.com/psb?/V10fh5zY2qvHyF/v3wJ7OAjGcBl*1VUN1f31rBTHDlfb4C5MbiHT4VGdss!/b/dBkBAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b178.photo.store.qq.com/psb?/V10fh5zY2qvHyF/ptiELZBIaaUOCVu4J8fIAe*2bOFCFu6dTrTtIkXK2w4!/b/dLIAAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotiz7GkB0ErbZkmyhwKV7f2pep6u.1I7QEKvZ.LY*uBN5u5BPaQ4IUj9XERdsT80HnpJFKHr8QvbUwRhQ52cuzmDQ!/b&bo=yAQNBsgEDQYRGS4!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKotixHclgrDZGOUbShc1heX0C68PpZEZ4IG7c1CObsXjcS.Z3UsGL96FQIGZoUC4hS.0NO0i.pymjq16BEHC4BW2B0!/b&bo=xgTiBcYE4gURGS4!&rf=viewer_4",
+			"http://b41.photo.store.qq.com/psb?/V10fh5zY2qvHyF/IMkHhu5sAcq8TPZK4gXYA6bm6RMud0WQFx6vU95w1Yk!/b/dCkAAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b154.photo.store.qq.com/psb?/V10fh5zY2qvHyF/CKCycRLWPd.o0qLtS*gAzEA*2ra35K85eH*7.n5LoEM!/b/dJoAAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b64.photo.store.qq.com/psb?/V10fh5zY2qvHyF/BTG*bjdqAsPhQjLreq.iHOhUIn3GVYbuiihJpEeDIAY!/b/dEAAAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b279.photo.store.qq.com/psb?/V10fh5zY2qvHyF/sH78Uhdt6eC5bCrSbahFONLCGerokOVtqtz1chd8iC8!/b/dBcBAAAAAAAA&bo=gAJqBQASUAgRGYk!&rf=viewer_4",
+			"http://b209.photo.store.qq.com/psb?/V10fh5zY2qvHyF/1LZOjMeDgwyQisr2ZYIl9D.*29yAVq1U0AsxY4CJ4qk!/b/dNEAAAAAAAAA&bo=gAJjBaAPQAcRKRI!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti9Bxd7v78OnIo3162k3PT7dZXHUNU5dS9mLG.F8LGsV0mMN9sqx0m8C82FwAjYtRaFzURbUYv7K9hj59kB0pdl4!/b&bo=vgQWBr4EFgYRGS4!&rf=viewer_4",
+			"http://b159.photo.store.qq.com/psb?/V10fh5zY2qvHyF/xERLE1b3T9DxOxynNA6RdfEDWm*PHNitwG4*GXeYEQk!/b/dJ8AAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b289.photo.store.qq.com/psb?/V10fh5zY2qvHyF/z0gwZH8ywihka3w72kl88BU40BQu1VJU.qZ0r3jGKek!/b/dCEBAAAAAAAA&bo=gAJqBQASUAgRGYk!&rf=viewer_4",
+			"http://b209.photo.store.qq.com/psb?/V10fh5zY2qvHyF/gwJquU6LJo6N9mDuL*EnrMObU65U2XxkyL7jVd9tYmc!/b/dNEAAAAAAAAA&bo=YwWAAqAPQAcRGSI!&rf=viewer_4",
+			"http://b29.photo.store.qq.com/psb?/V10fh5zY2qvHyF/9gD9nzA*6tlrhsyQQT2ywnb5qKT1FTSQtFlpnNrv.Es!/b/dB0AAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b31.photo.store.qq.com/psb?/V10fh5zY2qvHyF/xvv39FebH7.y*KTsKhV6aNciEu8G9EmSeM0e5UQL0oA!/b/dB8AAAAAAAAA&bo=gAJqBQASUAgRGYk!&rf=viewer_4",
+			"http://b281.photo.store.qq.com/psb?/V10fh5zY2qvHyF/NU*7U7UzHbS2WGNmS7KQIkWQyuHCk*tArX7dNk*2qZU!/b/dBkBAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b289.photo.store.qq.com/psb?/V10fh5zY2qvHyF/JqLPWpM7iJOZm42u.aQa5khDP845cMNUJtktr*ln4aA!/b/dCEBAAAAAAAA&bo=gAJjBaAPQAcRGSI!&rf=viewer_4",
+			"http://b209.photo.store.qq.com/psb?/V10fh5zY2qvHyF/kHGQp4H5xO2EXFUIQ2Yvd2dT2OVzg5DLLks7gCT6MbM!/b/dNEAAAAAAAAA&bo=gAJjBaAPQAcRKRI!&rf=viewer_4",
+			"http://b42.photo.store.qq.com/psb?/V10fh5zY2qvHyF/zYXoqrZXRhgydbZCq54I6xH1TzY2vnuKtSq.jbL0hUg!/b/dCoAAAAAAAAA&bo=0ALAA9ACwAMRGS4!&rf=viewer_4",
+			"http://b27.photo.store.qq.com/psb?/V10fh5zY2qvHyF/LPzNYB3w4mrmgh7UDmMB92zS0BlOp38WCwAwL8YJoOg!/b/dBsAAAAAAAAA&bo=gAJVA4ACVQMRGS4!&rf=viewer_4",
+			"http://b33.photo.store.qq.com/psb?/V10fh5zY2qvHyF/rUCvI4brEs.HBzNvND*4BmebU9kbbkpyT1f0e*362AY!/b/dCEAAAAAAAAA&bo=OASgBTgEoAURGS4!&rf=viewer_4",
+			"http://b289.photo.store.qq.com/psb?/V10fh5zY2qvHyF/TmYIsLAizLZ*l5u2jB6SnEDoxEhaJBIMkf802E9Vx2w!/b/dCEBAAAAAAAA&bo=gAJsBZcCngURGcs!&rf=viewer_4",
+			"http://b31.photo.store.qq.com/psb?/V10fh5zY2qvHyF/hLgvW0P0glyU.XJWVcBzfUtHx2e*ZPxvww.pBwxzl64!/b/dB8AAAAAAAAA&bo=KAR.BygEfgcRGS4!&rf=viewer_4",
+			"http://b287.photo.store.qq.com/psb?/V10fh5zY2qvHyF/MT5T6.tXt2DKBtJme38BiiRAP4fHJhYHj18z8mj9cgo!/b/dB8BAAAAAAAA&bo=wAMABcADAAURJxA!&rf=viewer_4",
+			"http://m.qpic.cn/psc?/V10fh5zY2qvHyF/mDs9eOaMYcPW22baQKoti2cpQH3kxgacUi6OwOtrtD3ezf3QFolmn6bpuvsTC2**Fqsoy8E1VhS1DvtZ58KD0Ffiny1*POYoo0ZNmYpVOfE!/b&bo=yAT2BcgE9gURGS4!&rf=viewer_4"
+			
+		];
+		var i=0;
+		function reImg(){
+			oImg.src = aImag[i];
+			i += 1;
+			if(i == aImag.length){
+				i=0;
+			}
+		}
+		timer = setInterval(reImg,600)
+	})(window,document)
+</script>
+</html>
